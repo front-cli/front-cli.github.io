@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Front CLI</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+	<section class="text-center">
+		<div class="content">
+			<img src="assets/img/logo.png" width="200" alt="logo">
+			<h1 class="title">Front CLI</h1>
+			<h5 class="subtitle">A simple tool to automate front-end projects</h4>
+			<br>
+			<a href="#documentation" class="btn btn-lg">Documentation</a>
+		</div>
+	</section>
+
+	<section >
+		<div class="content" id="documentation">
+			<!-- installation -->
+			<h3>Installation</h3>
+
+			<p>Having <a href="https://nodejs.org" target="_blank">Node.js</a> (>= 6) installed, type the following command in the terminal:</p>
+
+			<pre><code class="language-bash">npm install -g front-cli</code></pre>
+
+			<p>
+				After the installation the <span class="highlight">front</span> command would be available. To confirm that, type the following command in the terminal to see a list with the available front tasks:
+			</p>
+
+			<pre><code class="language-bash">front</code></pre>
+
+			<br>
+
+			<!-- init task -->
+			<h3>Creating the Application</h3>
+
+			<p>Let's create our first front application! Our application will be called <span class="highlight">awesomeApp</span>. Type the following command in the terminal to create our application:</p>
+			<!-- <p>Type the following command in the terminal to create a new front application, replacing <span class="highlight">applicationName</span> with the name of the application:</p> -->
+
+			<pre><code class="language-bash">front init awesomeApp</code></pre>
+
+			<p>
+				Answer the questions that will be made and wait while front downloads the application dependencies. After that, the application is ready to start!
+			</p>
+
+			<br>
+
+			<!-- start task -->
+			<h3>Starting the Application</h3>
+
+			<p>
+				Type the following command in the terminal to enter in the application folder:
+			</p>
+
+			<pre><code class="language-bash">cd awesomeApp</code></pre>
+
+			<p>Type the following command in the terminal to start our application in development mode:</p>
+
+			<pre><code class="language-bash">front start</code></pre>
+
+			<p>
+				Now open the address <a href="http://localhost:3000">http://localhost:3000</a> in the browser and you'll see our application running! Change some code in the application and see the browser. The browser refresh automatically!
+			</p>
+
+			<br>
+
+			<!-- build task -->
+			<h3>Building the Application</h3>
+
+			<p>
+				When you feel that the application is done, you can prepare it for production. This reduces drastically the application size and, believe me, the users will thank you for that. To prepare the application for production, type the following command in the terminal:
+			</p>
+
+			<pre><code class="language-bash">front build</code></pre>
+
+			<p>Wait a few seconds. Now, all we have to do is to get the <span class="highlight">dist</span> folder and deploy to a webserver.</p>
+		</div>
+	</section>
+
+	<!-- github ribbon -->
+	<a href="https://github.com/front-cli/front-cli">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+	</a>
+	<script src="assets/js/prism.js"></script>
+</body>
+</html>
