@@ -28,7 +28,7 @@
 			<pre><code class="language-bash">npm install -g front-cli</code></pre>
 
 			<p>
-				After the installation the <span class="highlight">front</span> command would be available. To confirm that, type the following command in the terminal to see a list with the available front tasks:
+				After the installation the <span class="highlight">front</span> command will be available. To confirm that, type the following command in the terminal to see a list with the available front tasks:
 			</p>
 
 			<pre><code class="language-bash">front</code></pre>
@@ -39,7 +39,6 @@
 			<h3>Creating the Application</h3>
 
 			<p>Let's create our first front application! Our application will be called <span class="highlight">awesomeApp</span>. Type the following command in the terminal to create our application:</p>
-			<!-- <p>Type the following command in the terminal to create a new front application, replacing <span class="highlight">applicationName</span> with the name of the application:</p> -->
 
 			<pre><code class="language-bash">front init awesomeApp</code></pre>
 
@@ -66,6 +65,26 @@
 				Now open the address <a href="http://localhost:3000">http://localhost:3000</a> in the browser and you'll see our application running! Change some code in the application and see the browser. The browser refresh automatically!
 			</p>
 
+			<h4>Options</h4>
+
+			<h5>--host (default: 0.0.0.0)</h5>
+
+			<p>Change the development server host:</p>
+
+			<pre><code class="language-bash">front start --host 192.168.0.0</code></pre>
+
+			<h5>--port (default: 3000)</h5>
+
+			<p>Change the development server port:</p>
+
+			<pre><code class="language-bash">front start --port 8080</code></pre>
+
+			<h5>--no-notify (default: false)</h5>
+
+			<p>Disable Front CLI notifications:</p>
+
+			<pre><code class="language-bash">front start --no-notify</code></pre>
+
 			<br>
 
 			<!-- build task -->
@@ -78,6 +97,14 @@
 			<pre><code class="language-bash">front build</code></pre>
 
 			<p>Wait a few seconds. Now, all we have to do is to get the <span class="highlight">dist</span> folder and deploy to a webserver.</p>
+
+			<h4>Options</h4>
+
+			<h5>--no-notify (default: false)</h5>
+
+			<p>Disable Front CLI notifications:</p>
+
+			<pre><code class="language-bash">front build --no-notify</code></pre>
 		</div>
 	</section>
 
