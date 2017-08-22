@@ -46,7 +46,7 @@
 
 			<h5>--template</h5>
 
-			<p>Inform a different template instead of the availables in <a href="https://github.com/front-templates">Front Templates</a> repositories:</p>
+			<p>Specifies a different template instead of the availables in <a href="https://github.com/front-templates">Front Templates</a> repositories:</p>
 
 			<pre><code class="language-bash">front init awesomeApp --template github_user/github_repo</code></pre>
 
@@ -69,21 +69,27 @@
 
 			<h5>--host (default: 0.0.0.0)</h5>
 
-			<p>Change the development server host:</p>
+			<p>Changes the development server host:</p>
 
 			<pre><code class="language-bash">front start --host 192.168.0.0</code></pre>
 
 			<h5>--port (default: 3000)</h5>
 
-			<p>Change the development server port:</p>
+			<p>Changes the development server port:</p>
 
 			<pre><code class="language-bash">front start --port 8080</code></pre>
 
 			<h5>--no-notify (default: false)</h5>
 
-			<p>Disable Front CLI notifications:</p>
+			<p>Disables Front CLI notifications:</p>
 
 			<pre><code class="language-bash">front start --no-notify</code></pre>
+			
+			<h5>--config (default: build/webpack.config.dev.js)</h5>
+
+			<p>Specifies which webpack config file Front CLI should use:</p>
+
+			<pre><code class="language-bash">front start --config some/path/some.webpack.config.js</code></pre>
 
 			<br>
 
@@ -100,9 +106,76 @@
 
 			<h5>--no-notify (default: false)</h5>
 
-			<p>Disable Front CLI notifications:</p>
+			<p>Disables Front CLI notifications:</p>
 
 			<pre><code class="language-bash">front build --no-notify</code></pre>
+			
+			<h5>--config (default: build/webpack.config.prod.js)</h5>
+
+			<p>Specifies which webpack config file Front CLI should use:</p>
+
+			<pre><code class="language-bash">front build --config some/path/some.webpack.config.js</code></pre>
+			
+			<br>
+			
+			<!-- run task -->
+			<h3>Running custom scripts</h3>
+			
+			<p>In Front CLI you can run your custom scripts (deploy, test, etc):</p>
+			
+			<pre><code class="language-bash">front run <scriptPath></code></pre>
+			
+			<p>The only rule to be observed is that your script must export a function:</p>
+			
+			<pre><code class="language-js">
+			// my_custom_deploy_script.js
+            
+			module.exports = (require, argv) => {
+				// script content
+			}
+			</code></pre>
+			
+			<p>Some things are given to you as a gift when creating your scripts: `require` and `argv`:</p>
+			
+			<h5>require</h5>
+			
+			<p>The given `require` parameter is in Front CLI context, so you have access to all Front CLI dependencies without the need to download again, eg `chalk`, `inquirer` and `fs-extra`. With only these dependencies you can create powerful scripts! As expected, if you want to use dependencies outside Front CLI context, you can:</p>
+			
+			<pre><code class="language-js">
+			// my_custom_deploy_script.js
+
+			// here, `require` is in NodeJS context. You need to download `fs-extra` (npm install fs-extra) to use.
+			let fs = require('fs-extra');
+
+			module.exports = (require, argv) => {
+    			// here, `require` is in Front CLI context and you can use all of its dependencies.
+    			let fs = require('fs-extra');
+			}
+			</code></pre>
+			
+			<h5>argv</h5>
+			
+			<p>The given `argv` parameter could be useful in some situations when you need to pass parameter to your script:</p>
+			
+			<pre><code class="language-bash">front run build/my_custom_deploy_script.js --server="production" --clean</code></pre>
+			
+			<p>The script could use these parameters:</p>
+			
+			<pre><code class="language-js">
+			// my_custom_deploy_script.js
+
+			module.exports = (require, argv) => {
+				let server = argv.server
+
+				// do something
+
+				if (argv.clean) {
+					// do something
+				} else {
+					// do something else
+				}
+			}
+			</code></pre>
 		</div>
 	</section>
 
