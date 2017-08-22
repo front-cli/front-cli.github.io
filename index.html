@@ -128,12 +128,12 @@
 			<p>The only rule to be observed is that your script must export a function:</p>
 			
 			<pre><code class="language-js">
-			// my_custom_deploy_script.js
-            
-			module.exports = (require, argv) => {
-				// script content
-			}
-			</code></pre>
+// my_custom_deploy_script.js
+
+module.exports = (require, argv) => {
+	// script content
+}
+</code></pre>
 			
 			<p>Some things are given to you as a gift when creating your scripts: `require` and `argv`:</p>
 			
@@ -142,16 +142,16 @@
 			<p>The given `require` parameter is in Front CLI context, so you have access to all Front CLI dependencies without the need to download again, eg `chalk`, `inquirer` and `fs-extra`. With only these dependencies you can create powerful scripts! As expected, if you want to use dependencies outside Front CLI context, you can:</p>
 			
 			<pre><code class="language-js">
-			// my_custom_deploy_script.js
+// my_custom_deploy_script.js
 
-			// here, `require` is in NodeJS context. You need to download `fs-extra` (npm install fs-extra) to use.
-			let fs = require('fs-extra');
+// here, `require` is in NodeJS context. You need to download `fs-extra` (npm install fs-extra) to use.
+let fs = require('fs-extra');
 
-			module.exports = (require, argv) => {
-    			// here, `require` is in Front CLI context and you can use all of its dependencies.
-    			let fs = require('fs-extra');
-			}
-			</code></pre>
+module.exports = (require, argv) => {
+	// here, `require` is in Front CLI context and you can use all of its dependencies.
+	let fs = require('fs-extra');
+}
+</code></pre>
 			
 			<h5>argv</h5>
 			
@@ -162,20 +162,20 @@
 			<p>The script could use these parameters:</p>
 			
 			<pre><code class="language-js">
-			// my_custom_deploy_script.js
+// my_custom_deploy_script.js
 
-			module.exports = (require, argv) => {
-				let server = argv.server
+module.exports = (require, argv) => {
+	let server = argv.server
 
-				// do something
+	// do something
 
-				if (argv.clean) {
-					// do something
-				} else {
-					// do something else
-				}
-			}
-			</code></pre>
+	if (argv.clean) {
+		// do something
+	} else {
+		// do something else
+	}
+}
+</code></pre>
 		</div>
 	</section>
 
